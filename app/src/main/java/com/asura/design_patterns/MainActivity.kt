@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
+import com.asura.design_patterns.principle.SixPrinciplesActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -56,13 +57,13 @@ class MainActivity : AppCompatActivity() {
             0 -> {
                 val intent = Intent()
                 intent.putExtra("content", resources.getString(R.string.app_name))
-                intent.setClass(this@MainActivity, AAAA::class.java)
+                intent.setClass(this@MainActivity, SixPrinciplesActivity::class.java)
                 startActivity(intent)
             }
             1 -> {
                 val intent = Intent()
                 intent.putExtra("content", resources.getString(R.string.app_name)+names[position])
-                intent.setClass(this@MainActivity, AAAA::class.java)
+                intent.setClass(this@MainActivity, SixPrinciplesActivity::class.java)
                 startActivity(intent)
             }
         }

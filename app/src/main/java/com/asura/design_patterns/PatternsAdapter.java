@@ -55,7 +55,7 @@ public class PatternsAdapter extends RecyclerView.Adapter<PatternsAdapter.Patter
         }
     }
 
-    interface CallBack {
+    public interface CallBack {
         /**
          * item 点击事件
          *

@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AAAA"
+            android:name=".principle.SixPrinciplesActivity"
             android:screenOrientation="portrait"/>
     </application>
 

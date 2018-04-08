@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Design-Patterns</string>
+    <string name="principles">
+        单一职责原则(Single Responsibility Principle)\n
+        就一个类而言，应该仅有一个引起它变化的原因。简单来说，一个类中应该是一组相关性很高的函数、数据的封装。
+
+        \n开闭原则(Open Close Principle)\n
+        软件中定义对象（类、模块、函数等）应该对于扩展是开放的，对于修改是关闭的。
+        （通过继承复写父类的方法来实现）
+
+        \n里式替换原则\n
+
+        \n依赖倒置原则\n
+        \n接口隔离原则\n
+        \n迪米特原则\n
+    </string>
 </resources>
