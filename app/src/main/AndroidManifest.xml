@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.asura.design_patterns">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,9 @@
         <activity
             android:name=".principle.SixPrinciplesActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".principle.imageloader.step0.TestActivity"/>
+        <activity android:name=".principle.imageloader.step1.TestActivity"/>
+        <activity android:name=".principle.imageloader.step2.TestActivity"/>
     </application>
 
 </manifest>

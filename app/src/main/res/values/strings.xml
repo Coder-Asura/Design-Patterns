@@ -14,4 +14,8 @@
         \n接口隔离原则\n
         \n迪米特原则\n
     </string>
+    <string name="principle_SRP">
+        单一职责原则(Single Responsibility Principle)\n\n
+        就一个类而言，应该仅有一个引起它变化的原因。简单来说，一个类中应该是一组相关性很高的函数、数据的封装。
+    </string>
 </resources>

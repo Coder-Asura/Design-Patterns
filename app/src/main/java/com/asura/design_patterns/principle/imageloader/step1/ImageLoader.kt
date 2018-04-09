@@ -2,6 +2,7 @@ package com.asura.design_patterns.principle.imageloader.step1
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Log
 import android.widget.ImageView
 import java.net.HttpURLConnection
 import java.net.URL
@@ -13,15 +14,17 @@ import java.util.concurrent.Executors
  * @author Created by Asura on 2018/4/8 17:13.
  */
 class ImageLoader {
-    private var mImageLruCache: MemoryCache? = null
+    private var mImageLruCache: ImageCache? = null
     private var mExecutorService: ExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())
 
     public fun displayImage(url: String, imageview: ImageView) {
         val bitmap: Bitmap? = mImageLruCache?.get(url)
         if (bitmap != null) {
+            Log.d("asura", "有缓存")
             imageview.setImageBitmap(bitmap)
             return
         }
+        Log.d("asura", "没缓存")
         imageview.tag = url
         mExecutorService.submit(object : Runnable {
             override fun run() {
