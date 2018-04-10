@@ -1,8 +1,11 @@
-package com.asura.design_patterns.singleinstance;
+package com.asura.design_patterns.singleinstance.step0;
+
+import com.asura.design_patterns.singleinstance.Staff;
 
 /**
+ * SingletonManager，饿汉单例模式
+ *
  * @author Created by Asura on 2018/3/23 18:11.
- *         CEO，饿汉单例模式
  */
 public class CEO extends Staff {
     private static final CEO mCEO = new CEO();

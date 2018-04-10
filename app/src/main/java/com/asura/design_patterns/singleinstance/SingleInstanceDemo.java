@@ -1,5 +1,7 @@
 package com.asura.design_patterns.singleinstance;
 
+import com.asura.design_patterns.singleinstance.step0.CEO;
+
 /**
  * @author Created by Asura on 2018/3/23 18:08.
  */

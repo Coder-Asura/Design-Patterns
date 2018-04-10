@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.widget.Toast
 import com.asura.design_patterns.principle.SixPrinciplesActivity
+import com.asura.design_patterns.singleinstance.step5.SingletonManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -61,10 +63,36 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             1 -> {
-                val intent = Intent()
-                intent.putExtra("content", resources.getString(R.string.app_name) + names[position])
-                intent.setClass(this@MainActivity, SixPrinciplesActivity::class.java)
-                startActivity(intent)
+                //创建单例
+                val ceo0 = com.asura.design_patterns.singleinstance.step0.CEO.getCEO()
+                val ceo1 = com.asura.design_patterns.singleinstance.step1.CEO.getCEO()
+                val ceo2 = com.asura.design_patterns.singleinstance.step2.CEO.getInstance()
+                val ceo3 = com.asura.design_patterns.singleinstance.step3.CEO.getInstance()
+                val ceo4 = com.asura.design_patterns.singleinstance.step4.CEO.INSTANCE
+                //加入到集合容器中管理
+                SingletonManager.registerService("ceo0", ceo0)
+                SingletonManager.registerService("ceo1", ceo1)
+                SingletonManager.registerService("ceo2", ceo2)
+                SingletonManager.registerService("ceo3", ceo3)
+                SingletonManager.registerService("ceo4", ceo4)
+                //重新获取一次单例
+                val ceo02 = com.asura.design_patterns.singleinstance.step0.CEO.getCEO()
+                val ceo12 = com.asura.design_patterns.singleinstance.step1.CEO.getCEO()
+                val ceo22 = com.asura.design_patterns.singleinstance.step2.CEO.getInstance()
+                val ceo32 = com.asura.design_patterns.singleinstance.step3.CEO.getInstance()
+                val ceo42 = com.asura.design_patterns.singleinstance.step4.CEO.INSTANCE
+                //比较两次实例是否相同
+                Log.d("asura", (ceo02 == ceo0).toString());
+                Log.d("asura", (ceo12 == ceo1).toString());
+                Log.d("asura", (ceo22 == ceo2).toString());
+                Log.d("asura", (ceo32 == ceo3).toString());
+                Log.d("asura", (ceo42 == ceo4).toString());
+                //和容器里的单例做比较
+                Log.d("asura", (ceo02 == SingletonManager.getService("ceo0")).toString());
+                Log.d("asura", (ceo12 == SingletonManager.getService("ceo1")).toString());
+                Log.d("asura", (ceo22 == SingletonManager.getService("ceo2")).toString());
+                Log.d("asura", (ceo32 == SingletonManager.getService("ceo3")).toString());
+                Log.d("asura", (ceo42 == SingletonManager.getService("ceo4")).toString());
             }
         }
     }
