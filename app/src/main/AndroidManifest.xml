@@ -26,6 +26,7 @@
         <activity android:name=".principle.imageloader.step0.TestActivity"/>
         <activity android:name=".principle.imageloader.step1.TestActivity"/>
         <activity android:name=".principle.imageloader.step2.TestActivity"/>
+        <activity android:name=".principle.renting.RentingActivity"/>
     </application>
 
 </manifest>

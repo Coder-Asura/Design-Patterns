@@ -1,21 +1,39 @@
 <resources>
     <string name="app_name">Design-Patterns</string>
-    <string name="principles">
-        单一职责原则(Single Responsibility Principle)\n
-        就一个类而言，应该仅有一个引起它变化的原因。简单来说，一个类中应该是一组相关性很高的函数、数据的封装。
 
-        \n开闭原则(Open Close Principle)\n
-        软件中定义对象（类、模块、函数等）应该对于扩展是开放的，对于修改是关闭的。
-        （通过继承复写父类的方法来实现）
-
-        \n里式替换原则\n
-
-        \n依赖倒置原则\n
-        \n接口隔离原则\n
-        \n迪米特原则\n
-    </string>
     <string name="principle_SRP">
         单一职责原则(Single Responsibility Principle)\n\n
         就一个类而言，应该仅有一个引起它变化的原因。简单来说，一个类中应该是一组相关性很高的函数、数据的封装。
     </string>
+    <string name="principle_OCP">
+        开闭原则(Open Close Principle)\n\n
+        一个实体（类、函数、模块等）应该对外扩展开放，对内修改关闭。
+    </string>
+    <string name="principle_LSP">
+        里式替换原则(Liskov Substitution Principle)\n\n
+        所有引用类的地方必须能够同名地使用其子类的对象。
+    </string>
+    <string name="principle_DIP">
+        依赖倒置原则(Dependence Inversion Principle)\n\n
+        1、高层模块不应该依赖底层模块，两者都应该依赖其抽象\n
+        2、抽象不应该依赖细节\n
+        3、细节应该依赖抽象
+    </string>
+    <string name="principle_ISP">
+        接口隔离原则(Interface Segregation Principle)\n\n
+        类间的依赖关系应该建立在最小的接口上。接口隔离的原则是将非常庞大、臃肿的接口拆分成更小的和更
+        具体的接口，这样客户只需要知道他们感兴趣的方法。
+    </string>
+    <string name="principle_LOD">
+        迪米特原则(Law of Demeter)\n\n
+        一个对象应该对其他对象有最少的了解。\n
+        “只与直接的朋友通信”这简单的几个字就能够将我们从复杂的关系网中抽离开来，是程序耦合度更低、稳定性更好。
+    </string>
+    <string name="demo_init">初始示例</string>
+    <string name="demo_srp">SRP示例</string>
+    <string name="demo_ocp">OCP、LSP、DIP、ISP示例</string>
+    <string name="demo_lod">LOD示例</string>
+    <string name="principles">六大原则</string>
+    <string name="principle_single_instance">单例模式</string>
+    <string name="principle_builder">Builder模式</string>
 </resources>

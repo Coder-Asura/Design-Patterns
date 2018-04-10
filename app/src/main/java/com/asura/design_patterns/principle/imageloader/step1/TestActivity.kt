@@ -13,6 +13,7 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_image_loader)
+        title = getString(R.string.demo_srp)
         btn_load.setOnClickListener { v ->
             val imageLoader: ImageLoader = ImageLoader()
             imageLoader.displayImage(imageUrl, imageView)

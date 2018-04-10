@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         names = ArrayList<String>()
-        names.add("六大原则")
-        names.add("单例模式")
-        names.add("Builder模式")
+        names.add(getString(R.string.principles))
+        names.add(getString(R.string.principle_single_instance))
+        names.add(getString(R.string.principle_builder))
         names.add("原型模式")
         names.add("工厂方法模式")
         names.add("抽象工厂方法模式")
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
             1 -> {
                 val intent = Intent()
-                intent.putExtra("content", resources.getString(R.string.app_name)+names[position])
+                intent.putExtra("content", resources.getString(R.string.app_name) + names[position])
                 intent.setClass(this@MainActivity, SixPrinciplesActivity::class.java)
                 startActivity(intent)
             }
