@@ -12,7 +12,7 @@ public class CEO {
     private static CEO instance = null;
 
     public static CEO getInstance() {
-        //表面不必要的同步
+        //避免不必要的同步
         if (instance == null) {
             synchronized (CEO.class) {
                 //同步后仍然为null，再创建

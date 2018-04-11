@@ -12,10 +12,8 @@ public class CEO {
     private CEO() {
     }
 
-    private static CEO instance = null;
-
     public static CEO getInstance() {
-        return CEOHolder.instance;
+        return CEOHolder.INSTANCE;
     }
 
     /**
@@ -24,7 +22,7 @@ public class CEO {
      * 延时了单例的初始化
      */
     private static class CEOHolder {
-        private static final CEO instance = new CEO();
+        private static final CEO INSTANCE = new CEO();
     }
 
     //防止反序列化时，可以通过反射来创建新对象
