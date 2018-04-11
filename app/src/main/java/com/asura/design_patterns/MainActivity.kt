@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import android.widget.Toast
 import com.asura.design_patterns.bulider.step0.Director
 import com.asura.design_patterns.bulider.step0.MacBookBuilder
@@ -55,10 +56,14 @@ class MainActivity : AppCompatActivity() {
         names.add("MVP")
         names.add("MVVM")
         recyclerView!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView!!.adapter = PatternsAdapter(names, PatternsAdapter.CallBack { view, position ->
-            Toast.makeText(this, names.get(position), Toast.LENGTH_SHORT).show()
-            viewDetails(position)
-        })
+        recyclerView!!.adapter = PatternsAdapter(names,
+                object : PatternsAdapter.CallBack {
+                    override fun onItemClick(view: View, position: Int) {
+                        Toast.makeText(this@MainActivity, names.get(position), Toast.LENGTH_SHORT).show()
+                        viewDetails(position)
+                    }
+                }
+        )
     }
 
     private fun viewDetails(position: Int) {
