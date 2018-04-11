@@ -1,12 +1,16 @@
 ### Design-Patterns
 
 《Android源码设计模式解析与实战》学习笔记
+[简书文集——设计模式](https://www.jianshu.com/nb/24193180)
 ----------
 ##### Kotlin 和 java 混用编写Demo
+#### [写在前面](https://www.jianshu.com/p/24e4d7132b96)
 ----------
-- [x] 六大原则
+- [x] 六大原则 
+#### [面向对象的六大原则](https://www.jianshu.com/p/c6a34983914d)
 
 - [x] 单例模式
+#### [应用最广的设计模式——单例模式](https://www.jianshu.com/p/ddecf317a8e9)
                 
 - [ ] Builder模式
                 
