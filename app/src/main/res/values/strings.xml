@@ -34,6 +34,7 @@
     <string name="demo_ocp">OCP、LSP、DIP、ISP示例</string>
     <string name="demo_lod">LOD示例</string>
     <string name="principles">六大原则</string>
-    <string name="principle_single_instance">单例模式</string>
-    <string name="principle_builder">Builder模式</string>
+    <string name="pattern_single_instance">单例模式</string>
+    <string name="pattern_builder">Builder模式</string>
+    <string name="pattern_prototype">原型模式</string>
 </resources>

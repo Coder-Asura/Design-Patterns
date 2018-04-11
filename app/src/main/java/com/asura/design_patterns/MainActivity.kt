@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.widget.Toast
 import com.asura.design_patterns.bulider.step0.Director
 import com.asura.design_patterns.bulider.step0.MacBookBuilder
@@ -20,15 +19,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //初始化日志配置
+        ALog.resetSetting();
+        //初始化集合数据
         initData()
     }
 
     private fun initData() {
         names = ArrayList<String>()
         names.add(getString(R.string.principles))
-        names.add(getString(R.string.principle_single_instance))
-        names.add(getString(R.string.principle_builder))
-        names.add("原型模式")
+        names.add(getString(R.string.pattern_single_instance))
+        names.add(getString(R.string.pattern_builder))
+        names.add(getString(R.string.pattern_prototype))
         names.add("工厂方法模式")
         names.add("抽象工厂方法模式")
         names.add("策略模式")
@@ -78,51 +80,51 @@ class MainActivity : AppCompatActivity() {
 
     private fun prototypeDemo() {
         // 浅拷贝 demo
-        Log.d("asura", "----------浅拷贝 demo------------")
-        Log.d("asura", "----------创建原文档------------")
+        ALog.d("----------浅拷贝 demo------------")
+        ALog.d("----------创建原文档------------")
         val originDoc = WordDoc()
         originDoc.text = "这是第一个文档"
         originDoc.imags.add("苍井空.jpg")
         originDoc.imags.add("饭岛爱.jpg")
         originDoc.imags.add("天使翼.jpg")
         originDoc.showDoc()
-        Log.d("asura", "----------clone文档------------")
+        ALog.d("----------clone文档------------")
         val cloneDoc = originDoc.clone()
         cloneDoc.showDoc()
-        Log.d("asura", "----------修改clone的文档 text------------")
+        ALog.d("----------修改clone的文档 text------------")
         cloneDoc.text = "修改原文档里的内容"
         cloneDoc.showDoc()
-        Log.d("asura", "----------修改clone后的原文档------------")
+        ALog.d("----------修改clone后的原文档------------")
         originDoc.showDoc()
-        Log.d("asura", "----------修改clone的文档 imags------------")
+        ALog.d("----------修改clone的文档 imags------------")
         //浅拷贝会影响原型对象
         cloneDoc.imags.add("武藤兰.jpg")
         cloneDoc.showDoc()
-        Log.d("asura", "----------修改clone后的原文档------------")
+        ALog.d("----------修改clone后的原文档------------")
         originDoc.showDoc()
 
         //深拷贝 demo
-        Log.d("asura", "----------深拷贝 demo------------")
-        Log.d("asura", "----------创建原文档------------")
+        ALog.d("----------深拷贝 demo------------")
+        ALog.d("----------创建原文档------------")
         val originDoc1 = com.asura.design_patterns.prototype.step1.WordDoc()
         originDoc1.text = "这是第一个文档"
         originDoc1.imags.add("苍井空.jpg")
         originDoc1.imags.add("饭岛爱.jpg")
         originDoc1.imags.add("天使翼.jpg")
         originDoc1.showDoc()
-        Log.d("asura", "----------clone文档------------")
+        ALog.d("----------clone文档------------")
         val cloneDoc1 = originDoc1.clone()
         cloneDoc1.showDoc()
-        Log.d("asura", "----------修改clone的文档 text------------")
+        ALog.d("----------修改clone的文档 text------------")
         cloneDoc1.text = "修改原文档里的内容"
         cloneDoc1.showDoc()
-        Log.d("asura", "----------修改clone后的原文档------------")
+        ALog.d("----------修改clone后的原文档------------")
         originDoc1.showDoc()
-        Log.d("asura", "----------修改clone的文档 imags------------")
+        ALog.d("----------修改clone的文档 imags------------")
         //浅拷贝会影响原型对象
         cloneDoc1.imags.add("武藤兰.jpg")
         cloneDoc1.showDoc()
-        Log.d("asura", "----------修改clone后的原文档------------")
+        ALog.d("----------修改clone后的原文档------------")
         originDoc1.showDoc()
     }
 
@@ -131,13 +133,13 @@ class MainActivity : AppCompatActivity() {
         val director = Director(builder)
         director.construct("Apple", "Apple Retina Display")
         val computer = builder.build()
-        Log.d("asura", computer.toString())
+        ALog.d(computer.toString())
 
         val builder1 = SurfaceBuilder()
         val computer1 = builder1.buildBoard("ASUS B350")
                 .buildDisplay("SamSung 34\" Display")
                 .build()
-        Log.d("asura", computer1.toString())
+        ALog.d(computer1.toString())
     }
 
     private fun singleInstanceDemo() {
@@ -160,23 +162,20 @@ class MainActivity : AppCompatActivity() {
         val ceo32 = com.asura.design_patterns.singleinstance.step3.CEO.getInstance()
         val ceo42 = com.asura.design_patterns.singleinstance.step4.CEO.INSTANCE
         //比较两次实例是否相同
-        Log.d("asura", (ceo02 == ceo0).toString());
-        Log.d("asura", (ceo12 == ceo1).toString());
-        Log.d("asura", (ceo22 == ceo2).toString());
-        Log.d("asura", (ceo32 == ceo3).toString());
-        Log.d("asura", (ceo42 == ceo4).toString());
+        ALog.d((ceo02 == ceo0).toString());
+        ALog.d((ceo12 == ceo1).toString());
+        ALog.d((ceo22 == ceo2).toString());
+        ALog.d((ceo32 == ceo3).toString());
+        ALog.d((ceo42 == ceo4).toString());
         //和容器里的单例做比较
-        Log.d("asura", (ceo02 == SingletonManager.getService("ceo0")).toString());
-        Log.d("asura", (ceo12 == SingletonManager.getService("ceo1")).toString());
-        Log.d("asura", (ceo22 == SingletonManager.getService("ceo2")).toString());
-        Log.d("asura", (ceo32 == SingletonManager.getService("ceo3")).toString());
-        Log.d("asura", (ceo42 == SingletonManager.getService("ceo4")).toString());
+        ALog.d((ceo02 == SingletonManager.getService("ceo0")).toString());
+        ALog.d((ceo12 == SingletonManager.getService("ceo1")).toString());
+        ALog.d((ceo22 == SingletonManager.getService("ceo2")).toString());
+        ALog.d((ceo32 == SingletonManager.getService("ceo3")).toString());
+        ALog.d((ceo42 == SingletonManager.getService("ceo4")).toString());
     }
 
     private fun principleDemo() {
-        val intent = Intent()
-        intent.putExtra("content", resources.getString(R.string.app_name))
-        intent.setClass(this@MainActivity, SixPrinciplesActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this@MainActivity, SixPrinciplesActivity::class.java))
     }
 }

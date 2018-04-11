@@ -1,6 +1,6 @@
 package com.asura.design_patterns.prototype.step0
 
-import android.util.Log
+import com.asura.design_patterns.ALog
 
 /**
  * @author Created by Asura on 2018/4/11 14:30.
@@ -10,12 +10,9 @@ class WordDoc : Cloneable {
     var imags = ArrayList<String>()
 
     fun showDoc() {
-        Log.d("asura", "Word Content Start")
-        Log.d("asura", "text:$text")
-        imags.forEach {
-            Log.d("asura", "imags:" + it)
-        }
-        Log.d("asura", "Word Content End")
+        ALog.d("Word Content Start")
+        ALog.d("text", "$text", "imags", "$imags")
+        ALog.d("asura", "Word Content End")
     }
 
     public override fun clone(): WordDoc {
@@ -28,6 +25,6 @@ class WordDoc : Cloneable {
 
     //clone 产生的实例不会调用构造方法
     init {
-        Log.d("asura", "WordDoc 的构造函数")
+        ALog.d( "WordDoc 的构造函数")
     }
 }
