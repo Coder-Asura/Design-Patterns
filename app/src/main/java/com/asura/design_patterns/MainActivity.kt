@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
+import com.asura.design_patterns.bulider.step0.Director
+import com.asura.design_patterns.bulider.step0.MacBookBuilder
+import com.asura.design_patterns.bulider.step1.SurfaceBuilder
 import com.asura.design_patterns.principle.SixPrinciplesActivity
 import com.asura.design_patterns.singleinstance.step5.SingletonManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -93,6 +96,19 @@ class MainActivity : AppCompatActivity() {
                 Log.d("asura", (ceo22 == SingletonManager.getService("ceo2")).toString());
                 Log.d("asura", (ceo32 == SingletonManager.getService("ceo3")).toString());
                 Log.d("asura", (ceo42 == SingletonManager.getService("ceo4")).toString());
+            }
+            2 -> {
+                val builder = MacBookBuilder()
+                val director = Director(builder)
+                director.construct("Apple", "Apple Retina Display")
+                val computer = builder.build()
+                Log.d("asura", computer.toString())
+
+                val builder1 = SurfaceBuilder()
+                val computer1 = builder1.buildBoard("ASUS B350")
+                        .buildDisplay("SamSung 34\" Display")
+                        .build()
+                Log.d("asura", computer1.toString())
             }
         }
     }

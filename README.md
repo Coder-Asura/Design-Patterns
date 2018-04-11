@@ -12,7 +12,7 @@
 - [x] 单例模式
 #### [应用最广的设计模式——单例模式](https://www.jianshu.com/p/ddecf317a8e9)
                 
-- [ ] Builder模式
+- [x] Builder模式
                 
 - [ ] 原型模式
 
