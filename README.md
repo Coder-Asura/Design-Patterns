@@ -4,19 +4,21 @@
 [简书文集——设计模式](https://www.jianshu.com/nb/24193180)
 ----------
 ##### Kotlin 和 java 混用编写Demo
-#### [写在前面](https://www.jianshu.com/p/24e4d7132b96)
+#### [0x00 - 写在前面](https://www.jianshu.com/p/24e4d7132b96)
 ----------
 - [x] 六大原则 
-#### [面向对象的六大原则](https://www.jianshu.com/p/c6a34983914d)
+#### [0x01 - 面向对象的六大原则](https://www.jianshu.com/p/c6a34983914d)
 
 - [x] 单例模式
-#### [应用最广的设计模式——单例模式](https://www.jianshu.com/p/ddecf317a8e9)
+#### [0x02 - 应用最广的设计模式——单例模式](https://www.jianshu.com/p/ddecf317a8e9)
                 
 - [x] Builder模式
+#### [0x03 - 自由扩展你的项目——Builder模式](https://www.jianshu.com/p/2f038328349f)
                 
 - [x] 原型模式
+#### [0x04 - 使程序运行更高效——原型模式](https://www.jianshu.com/p/aac08125fb9b)
 
-- [ ] 工厂方法模式
+- [x] 工厂方法模式
 
 - [ ] 抽象工厂方法模式
 
