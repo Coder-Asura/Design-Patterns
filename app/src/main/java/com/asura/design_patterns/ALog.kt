@@ -6,9 +6,8 @@ import com.orhanobut.logger.Settings
 
 /**
  * ALog提供INFO、DEBUG、ERROR级别的日志输出，配合Logger的优化，让日志打印输出工作变得更美好一点
- * <p>
+ *
  * https://github.com/Coder-Asura/ALog
- * </p>
  * @author Created by Asura on 2017/5/11 15:27.
  */
 class ALog {

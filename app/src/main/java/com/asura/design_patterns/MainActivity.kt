@@ -9,6 +9,9 @@ import android.widget.Toast
 import com.asura.design_patterns.bulider.step0.Director
 import com.asura.design_patterns.bulider.step0.MacBookBuilder
 import com.asura.design_patterns.bulider.step1.SurfaceBuilder
+import com.asura.design_patterns.factory.step0.ConcreteProductA
+import com.asura.design_patterns.factory.step4.AudiCarFactory
+import com.asura.design_patterns.factory.step4.AudiQ3
 import com.asura.design_patterns.principle.SixPrinciplesActivity
 import com.asura.design_patterns.prototype.step0.WordDoc
 import com.asura.design_patterns.singleinstance.step0.CEO
@@ -80,7 +83,47 @@ class MainActivity : AppCompatActivity() {
             3 -> {
                 prototypeDemo()
             }
+            4 -> {
+                factoryDemo()
+            }
         }
+    }
+
+    private fun factoryDemo() {
+        //需要哪个就创建哪个
+        val factory = com.asura.design_patterns.factory.step0.ConcreteFactory()
+        val product = factory.createProduct()
+        product.method()
+        //反射创建想要的产品
+        val factory1 = com.asura.design_patterns.factory.step1.ConcreteFactory()
+        val product1 = factory1.createProduct(ConcreteProductA::class.java);
+        product1.method()
+        //多工厂方法模式
+        val factory2 = com.asura.design_patterns.factory.step2.ConcreteFactoryA()
+        val product2 = factory2.createProduct();
+        product2.method()
+        val factory3 = com.asura.design_patterns.factory.step2.ConcreteFactoryB()
+        val product3 = factory3.createProduct();
+        product3.method()
+        //简单工厂（静态工厂）模式
+        val factory4 = com.asura.design_patterns.factory.step3.Factory()
+        val product4 = factory4.createProduct()
+        product4.method()
+        //简单实现
+        //构造一个具体的工厂对象
+        val audiFactory = AudiCarFactory()
+        // 工厂生产Q3
+        val audiQ3 = audiFactory.createAudiCar(AudiQ3::class.java)
+        audiQ3.drive()
+        audiQ3.selfNav()
+        // 工厂生产Q5
+        val audiQ5 = audiFactory.createAudiCar(AudiQ3::class.java)
+        audiQ5.drive()
+        audiQ5.selfNav()
+        // 工厂生产Q7
+        val audiQ7 = audiFactory.createAudiCar(AudiQ3::class.java)
+        audiQ7.drive()
+        audiQ7.selfNav()
     }
 
     private fun prototypeDemo() {
