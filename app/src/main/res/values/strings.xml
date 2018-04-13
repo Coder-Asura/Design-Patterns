@@ -37,4 +37,6 @@
     <string name="pattern_single_instance">单例模式</string>
     <string name="pattern_builder">Builder模式</string>
     <string name="pattern_prototype">原型模式</string>
+    <string name="pattern_factory">工厂方法模式</string>
+    <string name="pattern_abstract_factory">抽象工厂方法模式</string>
 </resources>

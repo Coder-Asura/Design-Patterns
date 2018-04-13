@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import com.asura.design_patterns.abstract_factory.step0.ConcreteFactory1
+import com.asura.design_patterns.abstract_factory.step0.ConcreteFactory2
 import com.asura.design_patterns.bulider.step0.Director
 import com.asura.design_patterns.bulider.step0.MacBookBuilder
 import com.asura.design_patterns.bulider.step1.SurfaceBuilder
@@ -35,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         names.add(getString(R.string.pattern_single_instance))
         names.add(getString(R.string.pattern_builder))
         names.add(getString(R.string.pattern_prototype))
-        names.add("工厂方法模式")
-        names.add("抽象工厂方法模式")
+        names.add(getString(R.string.pattern_factory))
+        names.add(getString(R.string.pattern_abstract_factory))
         names.add("策略模式")
         names.add("状态模式")
         names.add("责任链模式")
@@ -86,7 +88,27 @@ class MainActivity : AppCompatActivity() {
             4 -> {
                 factoryDemo()
             }
+            5 -> {
+                abstractFactoryDemo()
+            }
         }
+    }
+
+    private fun abstractFactoryDemo() {
+        //实例化一个具体的工厂1
+        val factory1 = ConcreteFactory1()
+        //具体工厂生产具体的产品
+        val productA1 = factory1.createProductA()
+        val productB1 = factory1.createProductB()
+        //具体产品调用自身实现的抽象产品方法
+        productA1.method()
+        productB1.method()
+
+        val factory2 = ConcreteFactory2()
+        val productA2 = factory2.createProductA()
+        val productB2 = factory2.createProductB()
+        productA2.method()
+        productB2.method()
     }
 
     private fun factoryDemo() {
