@@ -18,6 +18,10 @@ import com.asura.design_patterns.principle.SixPrinciplesActivity
 import com.asura.design_patterns.prototype.step0.WordDoc
 import com.asura.design_patterns.singleinstance.step0.CEO
 import com.asura.design_patterns.singleinstance.step5.SingletonManager
+import com.asura.design_patterns.strategy.step0.BusStrategy
+import com.asura.design_patterns.strategy.step0.SubwayStrategy
+import com.asura.design_patterns.strategy.step0.TaxiStrategy
+import com.asura.design_patterns.strategy.step0.TrafficCalculator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         names.add(getString(R.string.pattern_prototype))
         names.add(getString(R.string.pattern_factory))
         names.add(getString(R.string.pattern_abstract_factory))
-        names.add("策略模式")
+        names.add(getString(R.string.pattern_strategy))
         names.add("状态模式")
         names.add("责任链模式")
         names.add("解释器模式")
@@ -91,7 +95,17 @@ class MainActivity : AppCompatActivity() {
             5 -> {
                 abstractFactoryDemo()
             }
+            6 -> {
+                strategyDemo()
+            }
         }
+    }
+
+    private fun strategyDemo() {
+        //使用不同的策略计算交通费用
+        TrafficCalculator(BusStrategy()).calculatePrice(10)
+        TrafficCalculator(SubwayStrategy()).calculatePrice(10)
+        TrafficCalculator(TaxiStrategy()).calculatePrice(10)
     }
 
     private fun abstractFactoryDemo() {
