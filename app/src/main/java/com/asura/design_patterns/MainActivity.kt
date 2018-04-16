@@ -18,6 +18,7 @@ import com.asura.design_patterns.principle.SixPrinciplesActivity
 import com.asura.design_patterns.prototype.step0.WordDoc
 import com.asura.design_patterns.singleinstance.step0.CEO
 import com.asura.design_patterns.singleinstance.step5.SingletonManager
+import com.asura.design_patterns.state.WeiBoActivity
 import com.asura.design_patterns.strategy.step0.BusStrategy
 import com.asura.design_patterns.strategy.step0.SubwayStrategy
 import com.asura.design_patterns.strategy.step0.TaxiStrategy
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         names.add(getString(R.string.pattern_factory))
         names.add(getString(R.string.pattern_abstract_factory))
         names.add(getString(R.string.pattern_strategy))
-        names.add("状态模式")
+        names.add(getString(R.string.pattern_state))
         names.add("责任链模式")
         names.add("解释器模式")
         names.add("命令模式")
@@ -98,7 +99,14 @@ class MainActivity : AppCompatActivity() {
             6 -> {
                 strategyDemo()
             }
+            7 -> {
+                stateDemo()
+            }
         }
+    }
+
+    private fun stateDemo() {
+        startActivity(Intent(this@MainActivity, WeiBoActivity::class.java))
     }
 
     private fun strategyDemo() {

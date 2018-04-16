@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,6 +28,8 @@
         <activity android:name=".principle.imageloader.step1.TestActivity"/>
         <activity android:name=".principle.imageloader.step2.TestActivity"/>
         <activity android:name=".principle.renting.RentingActivity"/>
+        <activity android:name=".state.LoginActivity"/>
+        <activity android:name=".state.WeiBoActivity"/>
     </application>
 
 </manifest>
