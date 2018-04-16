@@ -14,6 +14,12 @@ import com.asura.design_patterns.bulider.step1.SurfaceBuilder
 import com.asura.design_patterns.factory.step0.ConcreteProductA
 import com.asura.design_patterns.factory.step4.AudiCarFactory
 import com.asura.design_patterns.factory.step4.AudiQ3
+import com.asura.design_patterns.iterator.step0.ConcreteHandler1
+import com.asura.design_patterns.iterator.step0.ConcreteHandler2
+import com.asura.design_patterns.iterator.step1.*
+import com.asura.design_patterns.iterator.step2.Boss
+import com.asura.design_patterns.iterator.step2.GroupLeader
+import com.asura.design_patterns.iterator.step2.Manager
 import com.asura.design_patterns.principle.SixPrinciplesActivity
 import com.asura.design_patterns.prototype.step0.WordDoc
 import com.asura.design_patterns.singleinstance.step0.CEO
@@ -46,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         names.add(getString(R.string.pattern_abstract_factory))
         names.add(getString(R.string.pattern_strategy))
         names.add(getString(R.string.pattern_state))
-        names.add("责任链模式")
+        names.add(getString(R.string.pattern_iterator))
         names.add("解释器模式")
         names.add("命令模式")
         names.add("观察者模式")
@@ -102,7 +108,56 @@ class MainActivity : AppCompatActivity() {
             7 -> {
                 stateDemo()
             }
+            8 -> {
+                iteratorDemo()
+            }
         }
+    }
+
+    private fun iteratorDemo() {
+        //step0
+        val handler1 = ConcreteHandler1()
+        val handler2 = ConcreteHandler2()
+        //设置下一节点
+        handler1.successor = handler2
+        handler2.successor = handler1
+        //处理请求
+        handler1.handleRequest("ConcreteHandler1")
+        handler1.handleRequest("ConcreteHandler2")
+        handler2.handleRequest("ConcreteHandler1")
+        handler2.handleRequest("ConcreteHandler2")
+
+        //step2
+        val handler3 = Handler1()
+        val handler4 = Handler2()
+        val handler5 = Handler3()
+
+        handler3.nextHandler = handler4
+        handler4.nextHandler = handler5
+
+        val request3 = Request1("request1")
+        val request4 = Request2("request2")
+        val request5 = Request3("request3")
+
+        handler3.handleRequest(request3)
+        handler3.handleRequest(request4)
+        handler3.handleRequest(request5)
+
+        handler4.handleRequest(request3)
+
+        //step2
+        val groupLeader = GroupLeader()
+        val manager = Manager()
+        val boss = Boss()
+
+        groupLeader.nextHandler = manager
+        manager.nextHandler = boss
+
+        groupLeader.handleRequest(600)
+        groupLeader.handleRequest(3000)
+        groupLeader.handleRequest(6000)
+        groupLeader.handleRequest(16000)
+        groupLeader.handleRequest(36000)
     }
 
     private fun stateDemo() {

@@ -47,4 +47,5 @@
     <string name="password">密码</string>
     <string name="comment">评论</string>
     <string name="pattern_state">状态模式</string>
+    <string name="pattern_iterator">责任链模式</string>
 </resources>
